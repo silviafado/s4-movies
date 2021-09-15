@@ -1,6 +1,3 @@
-// test
-alert('hello');
-
 const movies = require('../src/data');
 const {
   getAllDirectors,
