@@ -36,20 +36,24 @@ function orderAlphabetically(movies) {
 // Exercise 5: Order by year, ascending
 function orderByYear(movies) {
     let sortYear = movies
-    .map((movie) => movie.year)
-    .sort((a, b) => (a > b ? 1 : -1));
+    .map((movie) => {
+      const { title, year } = movie;
+      const formatArray = [{title: title, year: year}];
+      console.log(formatArray);
+      return formatArray[0];
+    })
+    .sort((a, b) => (a.year > b.year? 1 : -1));
   console.log('EXERCICE 5 ->', sortYear);
   return sortYear;
-
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
+function moviesAverageByCategory(movies) {
   let categoryAverage = movies.map((movie) => movie.genre);
   const arrayScore = categoryAverage.map(el => el.score);
   console.log(arrayScore);
   const average = Math.round(arrayScore.reduce((a, b) => a + b) / arrayScore.length * 100)/100;
-  console.log("EXERCICE 3 ->", average); 
+  console.log("EXERCICE 6 ->", average); 
   return average
 
 }
