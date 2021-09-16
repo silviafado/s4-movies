@@ -1,6 +1,6 @@
 // Exercise 1: Get the array of all directors.
-function getAllDirectors(array) {
-  const result =  array.map((movie) => movie.director);
+function getAllDirectors(movies) {
+  const result =  movies.map((movie) => movie.director);
   console.log("EXERCICE 1 ->", result);
   return result;
 }
@@ -24,17 +24,33 @@ function moviesAverageOfDirector(array, director) {
 }
 
 // Exercise 4:  Alphabetic order by title 
-function orderAlphabetically(array) {
-  
+function orderAlphabetically(movies) {
+  let sortAlphabet = movies
+    .map((movie) => movie.title)
+    .sort((a, b) => (a > b ? 1 : -1))
+    .slice(0, 20);
+  console.log('EXERCICE 4 ->', sortAlphabet);
+  return sortAlphabet;
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
+function orderByYear(movies) {
+    let sortYear = movies
+    .map((movie) => movie.year)
+    .sort((a, b) => (a > b ? 1 : -1));
+  console.log('EXERCICE 5 ->', sortYear);
+  return sortYear;
 
 }
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {
+  let categoryAverage = movies.map((movie) => movie.genre);
+  const arrayScore = categoryAverage.map(el => el.score);
+  console.log(arrayScore);
+  const average = Math.round(arrayScore.reduce((a, b) => a + b) / arrayScore.length * 100)/100;
+  console.log("EXERCICE 3 ->", average); 
+  return average
 
 }
 
