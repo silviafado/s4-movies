@@ -58,9 +58,9 @@ function moviesAverageByCategory(movies, genre) {
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(movies) {
-  const moviesCopy = movies;
+  const moviesCopy = movies.map(movie => { return { ...movie } });
   const newArray = [];
-  const reformattedArray = moviesCopy.map((movie) => {
+  moviesCopy.map((movie) => {
     const durationMovie = movie.duration;
     let minutes = durationMovie.match(/\d+/g).map(Number);
     if (minutes.length === 1) {
