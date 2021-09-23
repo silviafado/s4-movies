@@ -68,7 +68,6 @@ function hoursToMinutes(movies) {
     }
     minutes = minutes[0] * 60 + minutes[1];
     movie.duration = minutes;
-    console.log(movie)
     newArray.push(movie)
   })
   console.log('EXERCICE 7 ->', newArray);
@@ -76,11 +75,12 @@ function hoursToMinutes(movies) {
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear(movies, year, score) {
+function bestFilmOfYear(movies, year) {
   let bestFilm = movies
     .filter((movie) => movie.year === year)
-    .sort((a, b) => (a.score > b.score? 1 : -1));
-  const formatArray = [movies[0]];
+    .sort((a, b) => (a.score < b.score? 1 : -1));
+    console.log(bestFilm);
+  const formatArray = [bestFilm[0]];
   console.log('EXERCICE 8 ->', formatArray);
   return formatArray;
 }
